@@ -8,22 +8,20 @@ const ProductsPreview = (props) => {
 
   useEffect(() => {
     let locProducts = localStorage;
-    // localStorage.clear()
     setProducts(locProducts);
   }, [deleted]);
 
   function setNewQuantity(event, key) {
-    setProducts({ ...products, quantity: event.target.value });
+    event.preventDefault();
   }
 
   function setNewPrice(event, key) {
     event.preventDefault();
-    // console.log(event.target.value);
-    // const value = event.target.value;
-    // setProducts((prevState) => {
-    //   prevState[key].price = value;
-    //   return { ...prevState };
-    // });
+    // let tempItem = JSON.parse(localStorage.getItem(key));
+    // setProducts({...products, price: event.target.value});
+    // console.log(tempItem);
+    // console.log('Current product: '+products[key]);
+
   }
 
   function saveInlineEdits() {
