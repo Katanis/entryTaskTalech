@@ -8,6 +8,7 @@ const ProductsPreview = (props) => {
 
   useEffect(() => {
     let locProducts = localStorage;
+    // localStorage.clear();
     setProducts(locProducts);
   }, [deleted]);
 
@@ -17,8 +18,11 @@ const ProductsPreview = (props) => {
 
   function setNewPrice(event, key) {
     event.preventDefault();
+    let temp = localStorage.getItem(key);
+    
     // let tempItem = JSON.parse(localStorage.getItem(key));
-    // setProducts({...products, price: event.target.value});
+    console.log(products);
+    setProducts({...products, price: event.target.value});
     // console.log(tempItem);
     // console.log('Current product: '+products[key]);
 
@@ -55,7 +59,7 @@ const ProductList = (props) => {
     <div className="ScrollableContent">
       <table>
         <TableHeader></TableHeader>
-        {Object.entries(props.products).map(([key, valueJSON]) => {
+        {Object.entries(localStorage).map(([key, valueJSON]) => {
           const value = JSON.parse(valueJSON);
           return (
             <tr
